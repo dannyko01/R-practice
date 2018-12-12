@@ -1,0 +1,11 @@
+library(ggplot2)
+
+ggplot(NBA_3PTAv2, aes(TPA, TPP)) + #import data, setting X and Y axis. But seems header can't be like "3PA" and "3P%"?
+  geom_point(aes(col=Tm, size=PPG)) + #mark every dot by teams (but 30 teams are too much, colors can't distinguish each other ). dot size is according to PPG
+  geom_smooth(method="lm", se=F) + #add regression
+  theme_minimal() + #don't know how to use yet
+  labs(subtitle="3PA VS 3P%", #set up labs
+       y="3P%", 
+       x="3PTA", 
+       title="3PT Efficiency", 
+       caption = "Source: Basketball-Reference.com")

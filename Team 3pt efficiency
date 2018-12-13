@@ -1,0 +1,16 @@
+library(ggplot2)
+
+Playoffteam <- filter(NBA_Team_season_1718v2, Rk < 17)
+
+ggplot(Playoffteam, aes(x=ThPA, y=ThPPc)) + 
+  geom_point(aes(col=Tm, size=W)) +
+  geom_hline(aes(yintercept=mean(ThPPc))) +
+  geom_vline(aes(xintercept=mean(ThPA))) +
+  theme_minimal() + 
+  labs(subtitle="3PA VS 3P%", #set up labs
+       y="3P%", 
+       x="3PTA", 
+       title="3PT Efficiency", 
+       caption = "Source: Basketball-Reference.com",
+       color = "Team",
+       size = "Wins")
